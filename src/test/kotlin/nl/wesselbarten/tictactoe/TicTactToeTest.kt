@@ -81,5 +81,30 @@ class TicTactToeTest {
 
             assertEquals(Player.X, game.board.getPlayerAt(Position.TOP_LEFT))
         }
+
+        @Test
+        fun `All positions can be marked`() {
+            val game = Game()
+
+            game.mark(Position.TOP_LEFT)
+            game.mark(Position.TOP_CENTER)
+            game.mark(Position.TOP_RIGHT)
+            game.mark(Position.MIDDLE_LEFT)
+            game.mark(Position.MIDDLE_CENTER)
+            game.mark(Position.MIDDLE_RIGHT)
+            game.mark(Position.BOTTOM_LEFT)
+            game.mark(Position.BOTTOM_CENTER)
+            game.mark(Position.BOTTOM_RIGHT)
+
+            assertEquals(Player.X, game.board.getPlayerAt(Position.TOP_LEFT))
+            assertEquals(Player.O, game.board.getPlayerAt(Position.TOP_CENTER))
+            assertEquals(Player.X, game.board.getPlayerAt(Position.TOP_RIGHT))
+            assertEquals(Player.O, game.board.getPlayerAt(Position.MIDDLE_LEFT))
+            assertEquals(Player.X, game.board.getPlayerAt(Position.MIDDLE_CENTER))
+            assertEquals(Player.O, game.board.getPlayerAt(Position.MIDDLE_RIGHT))
+            assertEquals(Player.X, game.board.getPlayerAt(Position.BOTTOM_LEFT))
+            assertEquals(Player.O, game.board.getPlayerAt(Position.BOTTOM_CENTER))
+            assertEquals(Player.X, game.board.getPlayerAt(Position.BOTTOM_RIGHT))
+        }
     }
 }
