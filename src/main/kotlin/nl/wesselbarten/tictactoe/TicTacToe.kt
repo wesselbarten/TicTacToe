@@ -39,7 +39,7 @@ class Board {
     }
 
     fun mark(position: Position, player: Player) {
-        positions[position] = player
+        positions.putIfAbsent(position, player)
     }
 }
 

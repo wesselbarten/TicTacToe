@@ -6,4 +6,4 @@
 [X] Player X can mark the top left position on the board
 [X] Player X can mark the top right position on the board
 [X] After Player X has marked the top left position, Player O can mark the top right position
-[ ] A position cannot be marked twice
+[X] A position cannot be marked twice
