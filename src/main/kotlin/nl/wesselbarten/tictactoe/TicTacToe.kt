@@ -38,5 +38,6 @@ class Board {
 }
 
 enum class Position {
-    TOP_LEFT
+    TOP_LEFT,
+    TOP_RIGHT,
 }
