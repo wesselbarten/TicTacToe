@@ -10,17 +10,19 @@ class Game {
         private set
 
     fun play() {
-        if (currentPlayer == Player.X) {
-            currentPlayer = Player.O
-            return
-        }
-
-        if (currentPlayer == Player.O) {
-            currentPlayer = Player.X
-        }
+        currentPlayer = Player.nextPlayer(currentPlayer)
     }
 }
 
 enum class Player {
     X, O;
+
+    companion object {
+        fun nextPlayer(currentPlayer: Player): Player {
+            return when (currentPlayer) {
+                X -> O
+                O -> X
+            }
+        }
+    }
 }
