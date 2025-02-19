@@ -24,5 +24,15 @@ class TicTactToeTest {
 
             assertEquals(Player.O, game.currentPlayer)
         }
+
+        @Test
+        fun `After player O has played, player X can play again`() {
+            val game = Game()
+
+            game.play()
+            game.play()
+
+            assertEquals(Player.X, game.currentPlayer)
+        }
     }
 }
