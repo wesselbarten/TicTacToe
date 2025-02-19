@@ -12,7 +12,7 @@ class Game {
         private set
 
     fun play(position: Position) {
-        board.positions[position] = currentPlayer
+        board.mark(position, currentPlayer)
         currentPlayer = Player.nextPlayer(currentPlayer)
     }
 }
@@ -32,12 +32,16 @@ enum class Player {
 
 class Board {
 
-    val positions = mutableMapOf<Position, Player?>(
+    private val positions = mutableMapOf<Position, Player?>(
         Position.TOP_LEFT to null
     )
 
     fun getPlayerAt(position: Position): Player? {
         return positions[position]
+    }
+
+    fun mark(position: Position, player: Player) {
+        positions[position] = player
     }
 }
 
