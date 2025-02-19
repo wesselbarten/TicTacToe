@@ -12,6 +12,7 @@ class Game {
         private set
 
     fun play(position: Position) {
+        board.positions[position] = currentPlayer
         currentPlayer = Player.nextPlayer(currentPlayer)
     }
 }
@@ -31,7 +32,9 @@ enum class Player {
 
 class Board {
 
-    val positions = mapOf<Position, Player?>()
+    val positions = mutableMapOf<Position, Player?>(
+        Position.TOP_LEFT to null
+    )
 }
 
 enum class Position {
