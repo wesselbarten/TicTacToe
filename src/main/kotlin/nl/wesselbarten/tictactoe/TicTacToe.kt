@@ -11,7 +11,7 @@ class Game {
     var currentPlayer = Player.X
         private set
 
-    fun play(position: Position) {
+    fun mark(position: Position) {
         board.mark(position, currentPlayer)
         currentPlayer = Player.nextPlayer(currentPlayer)
     }

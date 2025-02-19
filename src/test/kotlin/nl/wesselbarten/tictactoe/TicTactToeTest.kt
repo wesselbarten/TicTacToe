@@ -10,27 +10,27 @@ class TicTactToeTest {
     inner class PlayerTest {
 
         @Test
-        fun `Player X is the first player to play`() {
+        fun `Player X is the first player to mark`() {
             val game = Game()
 
             assertEquals(Player.X, game.currentPlayer)
         }
 
         @Test
-        fun `After player X has played, player O can play`() {
+        fun `After player X has marked, player O can mark`() {
             val game = Game()
 
-            game.play(Position.TOP_LEFT)
+            game.mark(Position.TOP_LEFT)
 
             assertEquals(Player.O, game.currentPlayer)
         }
 
         @Test
-        fun `After player O has played, player X can play again`() {
+        fun `After player O has marked, player X can mark again`() {
             val game = Game()
 
-            game.play(Position.TOP_LEFT)
-            game.play(Position.TOP_LEFT)
+            game.mark(Position.TOP_LEFT)
+            game.mark(Position.TOP_LEFT)
 
             assertEquals(Player.X, game.currentPlayer)
         }
@@ -43,7 +43,7 @@ class TicTactToeTest {
         fun `Player X can mark the top left position on the board`() {
             val game = Game()
 
-            game.play(Position.TOP_LEFT)
+            game.mark(Position.TOP_LEFT)
 
             val position = game.board.getPlayerAt(Position.TOP_LEFT)
 
@@ -54,7 +54,7 @@ class TicTactToeTest {
         fun `Player X can mark the top right position on the board`() {
             val game = Game()
 
-            game.play(Position.TOP_RIGHT)
+            game.mark(Position.TOP_RIGHT)
 
             val position = game.board.getPlayerAt(Position.TOP_RIGHT)
 
@@ -65,8 +65,8 @@ class TicTactToeTest {
         fun `After Player X has marked the top left position, Player O can mark the top right position`() {
             val game = Game()
 
-            game.play(Position.TOP_LEFT)
-            game.play(Position.TOP_RIGHT)
+            game.mark(Position.TOP_LEFT)
+            game.mark(Position.TOP_RIGHT)
 
             assertEquals(Player.X, game.board.getPlayerAt(Position.TOP_LEFT))
             assertEquals(Player.O, game.board.getPlayerAt(Position.TOP_RIGHT))
