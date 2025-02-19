@@ -20,6 +20,8 @@ class TicTactToeTest {
         fun `After player X has played, player O can play`() {
             val game = Game()
 
+            game.play()
+
             assertEquals(Player.O, game.currentPlayer)
         }
     }
