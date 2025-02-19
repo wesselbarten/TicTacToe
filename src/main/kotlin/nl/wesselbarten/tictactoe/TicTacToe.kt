@@ -38,6 +38,12 @@ class Board {
 
     private val positions = mutableMapOf<Position, Player?>()
 
+    private val winningPatterns = listOf(
+        WinningPattern(Position.TOP_LEFT, Position.TOP_CENTER, Position.TOP_RIGHT),
+        WinningPattern(Position.MIDDLE_LEFT, Position.MIDDLE_CENTER, Position.MIDDLE_RIGHT),
+        WinningPattern(Position.TOP_LEFT, Position.MIDDLE_CENTER, Position.BOTTOM_RIGHT),
+    )
+
     fun getPlayerAt(position: Position): Player? {
         return positions[position]
     }
@@ -47,18 +53,10 @@ class Board {
     }
 
     fun getWinningPLayer(): Player? {
-        if (isSamePlayer(Position.TOP_LEFT, Position.TOP_CENTER, Position.TOP_RIGHT)) {
-            return getPlayerAt(Position.TOP_LEFT)
+        val winningPattern = winningPatterns.find { isSamePlayer(it.firstPosition, it.secondPosition, it.thirdPosition) }
+        if (winningPattern != null) {
+            return getPlayerAt(winningPattern.firstPosition)
         }
-
-        if (isSamePlayer(Position.MIDDLE_LEFT, Position.MIDDLE_CENTER, Position.MIDDLE_RIGHT)) {
-            return getPlayerAt(Position.MIDDLE_LEFT)
-        }
-
-        if (isSamePlayer(Position.TOP_LEFT, Position.MIDDLE_CENTER, Position.BOTTOM_RIGHT)) {
-            return getPlayerAt(Position.TOP_LEFT)
-        }
-
 
         return null
     }
@@ -80,3 +78,5 @@ enum class Position {
     BOTTOM_CENTER,
     BOTTOM_RIGHT;
 }
+
+class WinningPattern(val firstPosition: Position, val secondPosition: Position, val thirdPosition: Position)
