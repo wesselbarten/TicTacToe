@@ -52,6 +52,12 @@ class Board {
             return getPlayerAt(Position.TOP_LEFT)
         }
 
+        if (getPlayerAt(Position.MIDDLE_LEFT) == getPlayerAt(Position.MIDDLE_CENTER) &&
+            getPlayerAt(Position.MIDDLE_CENTER) == getPlayerAt(Position.MIDDLE_RIGHT)) {
+            return getPlayerAt(Position.MIDDLE_LEFT)
+        }
+
+
         return null
     }
 }
