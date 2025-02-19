@@ -12,6 +12,11 @@ class Game {
     fun play() {
         if (currentPlayer == Player.X) {
             currentPlayer = Player.O
+            return
+        }
+
+        if (currentPlayer == Player.O) {
+            currentPlayer = Player.X
         }
     }
 }
