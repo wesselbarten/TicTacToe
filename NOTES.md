@@ -8,3 +8,4 @@
 [X] After Player X has marked the top left position, Player O can mark the top right position
 [X] A position cannot be marked twice
 [X] All positions can be marked
+[ ] Player X wins when has marked the top left, top center and top right positions

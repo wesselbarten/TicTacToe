@@ -107,4 +107,21 @@ class TicTactToeTest {
             assertEquals(Player.X, game.board.getPlayerAt(Position.BOTTOM_RIGHT))
         }
     }
+
+    @Nested
+    inner class WinningPlayer {
+
+        @Test
+        fun `Player X wins when has marked the top left, top center and top right positions`() {
+            val game = Game()
+
+            game.mark(Position.TOP_LEFT)
+            game.mark(Position.MIDDLE_LEFT)
+            game.mark(Position.TOP_CENTER)
+            game.mark(Position.MIDDLE_CENTER)
+            game.mark(Position.TOP_RIGHT)
+
+            assertEquals(Player.X, game.getWinningPlayer())
+        }
+    }
 }

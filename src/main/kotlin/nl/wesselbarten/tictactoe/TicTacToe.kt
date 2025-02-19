@@ -15,6 +15,10 @@ class Game {
         board.mark(position, currentPlayer)
         currentPlayer = Player.nextPlayer(currentPlayer)
     }
+
+    fun getWinningPlayer(): Player? {
+        return board.getWinningPLayer()
+    }
 }
 
 enum class Player {
@@ -40,6 +44,10 @@ class Board {
 
     fun mark(position: Position, player: Player) {
         positions.putIfAbsent(position, player)
+    }
+
+    fun getWinningPLayer(): Player? {
+        return null
     }
 }
 
