@@ -47,6 +47,11 @@ class Board {
     }
 
     fun getWinningPLayer(): Player? {
+        if (getPlayerAt(Position.TOP_LEFT) == getPlayerAt(Position.TOP_CENTER) &&
+            getPlayerAt(Position.TOP_CENTER) == getPlayerAt(Position.TOP_RIGHT)) {
+            return getPlayerAt(Position.TOP_LEFT)
+        }
+
         return null
     }
 }
