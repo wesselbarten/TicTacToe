@@ -6,10 +6,12 @@ fun main() {
 
 class Game {
 
+    val board = Board()
+
     var currentPlayer = Player.X
         private set
 
-    fun play() {
+    fun play(position: Position) {
         currentPlayer = Player.nextPlayer(currentPlayer)
     }
 }
@@ -25,4 +27,13 @@ enum class Player {
             }
         }
     }
+}
+
+class Board {
+
+    val positions = mapOf<Position, Player?>()
+}
+
+enum class Position {
+    TOP_LEFT
 }
