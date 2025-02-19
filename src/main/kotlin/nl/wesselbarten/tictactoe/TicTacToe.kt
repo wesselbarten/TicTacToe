@@ -47,23 +47,25 @@ class Board {
     }
 
     fun getWinningPLayer(): Player? {
-        if (getPlayerAt(Position.TOP_LEFT) == getPlayerAt(Position.TOP_CENTER) &&
-            getPlayerAt(Position.TOP_CENTER) == getPlayerAt(Position.TOP_RIGHT)) {
+        if (isSamePlayer(Position.TOP_LEFT, Position.TOP_CENTER, Position.TOP_RIGHT)) {
             return getPlayerAt(Position.TOP_LEFT)
         }
 
-        if (getPlayerAt(Position.MIDDLE_LEFT) == getPlayerAt(Position.MIDDLE_CENTER) &&
-            getPlayerAt(Position.MIDDLE_CENTER) == getPlayerAt(Position.MIDDLE_RIGHT)) {
+        if (isSamePlayer(Position.MIDDLE_LEFT, Position.MIDDLE_CENTER, Position.MIDDLE_RIGHT)) {
             return getPlayerAt(Position.MIDDLE_LEFT)
         }
 
-        if (getPlayerAt(Position.TOP_LEFT) == getPlayerAt(Position.MIDDLE_CENTER) &&
-            getPlayerAt(Position.MIDDLE_CENTER) == getPlayerAt(Position.BOTTOM_RIGHT)) {
+        if (isSamePlayer(Position.TOP_LEFT, Position.MIDDLE_CENTER, Position.BOTTOM_RIGHT)) {
             return getPlayerAt(Position.TOP_LEFT)
         }
 
 
         return null
+    }
+
+    private fun isSamePlayer(firstPosition: Position, secondPosition: Position, thirdPosition: Position): Boolean {
+        return getPlayerAt(firstPosition) == getPlayerAt(secondPosition) &&
+            getPlayerAt(secondPosition) == getPlayerAt(thirdPosition)
     }
 }
 
