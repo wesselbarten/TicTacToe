@@ -9,3 +9,4 @@
 [X] A position cannot be marked twice
 [X] All positions can be marked
 [X] Player X wins when has marked the top left, top center and top right positions
+[ ] Player X wins when has marked the middle left, middle center and middle right positions

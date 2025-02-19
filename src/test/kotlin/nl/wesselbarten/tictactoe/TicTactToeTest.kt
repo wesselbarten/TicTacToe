@@ -123,5 +123,18 @@ class TicTactToeTest {
 
             assertEquals(Player.X, game.getWinningPlayer())
         }
+
+        @Test
+        fun `Player X wins when has marked the middle left, middle center and middle right positions`() {
+            val game = Game()
+
+            game.mark(Position.MIDDLE_LEFT)
+            game.mark(Position.TOP_LEFT)
+            game.mark(Position.MIDDLE_CENTER)
+            game.mark(Position.TOP_CENTER)
+            game.mark(Position.MIDDLE_RIGHT)
+
+            assertEquals(Player.X, game.getWinningPlayer())
+        }
     }
 }
