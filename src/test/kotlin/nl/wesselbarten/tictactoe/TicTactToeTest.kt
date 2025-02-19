@@ -71,5 +71,15 @@ class TicTactToeTest {
             assertEquals(Player.X, game.board.getPlayerAt(Position.TOP_LEFT))
             assertEquals(Player.O, game.board.getPlayerAt(Position.TOP_RIGHT))
         }
+
+        @Test
+        fun `A position cannot be marked twice`() {
+            val game = Game()
+
+            game.mark(Position.TOP_LEFT)
+            game.mark(Position.TOP_LEFT)
+
+            assertEquals(Player.X, game.board.getPlayerAt(Position.TOP_LEFT))
+        }
     }
 }
