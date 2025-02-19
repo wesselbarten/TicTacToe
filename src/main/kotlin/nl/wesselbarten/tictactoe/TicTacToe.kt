@@ -32,9 +32,7 @@ enum class Player {
 
 class Board {
 
-    private val positions = mutableMapOf<Position, Player?>(
-        Position.TOP_LEFT to null
-    )
+    private val positions = mutableMapOf<Position, Player?>()
 
     fun getPlayerAt(position: Position): Player? {
         return positions[position]
@@ -47,6 +45,7 @@ class Board {
 
 enum class Position {
     TOP_LEFT,
+    TOP_CENTER,
     TOP_RIGHT,
     MIDDLE_LEFT,
     MIDDLE_CENTER,
