@@ -10,3 +10,4 @@
 [X] All positions can be marked
 [X] Player X wins when has marked the top left, top center and top right positions
 [X] Player X wins when has marked the middle left, middle center and middle right positions
+[X] Player X does not win when has marked the top left, middle center and middle right positions
