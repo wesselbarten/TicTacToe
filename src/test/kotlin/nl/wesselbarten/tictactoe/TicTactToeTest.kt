@@ -60,5 +60,16 @@ class TicTactToeTest {
 
             assertEquals(Player.X, position)
         }
+
+        @Test
+        fun `After Player X has marked the top left position, Player O can mark the top right position`() {
+            val game = Game()
+
+            game.play(Position.TOP_LEFT)
+            game.play(Position.TOP_RIGHT)
+
+            assertEquals(Player.X, game.board.positions[Position.TOP_LEFT])
+            assertEquals(Player.O, game.board.positions[Position.TOP_RIGHT])
+        }
     }
 }
