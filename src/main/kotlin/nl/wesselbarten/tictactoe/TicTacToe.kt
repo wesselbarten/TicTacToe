@@ -35,6 +35,10 @@ class Board {
     val positions = mutableMapOf<Position, Player?>(
         Position.TOP_LEFT to null
     )
+
+    fun getPlayerAt(position: Position): Player? {
+        return positions[position]
+    }
 }
 
 enum class Position {

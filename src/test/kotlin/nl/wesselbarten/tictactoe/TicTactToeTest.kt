@@ -45,7 +45,7 @@ class TicTactToeTest {
 
             game.play(Position.TOP_LEFT)
 
-            val position = game.board.positions[Position.TOP_LEFT]
+            val position = game.board.getPlayerAt(Position.TOP_LEFT)
 
             assertEquals(Player.X, position)
         }
@@ -56,7 +56,7 @@ class TicTactToeTest {
 
             game.play(Position.TOP_RIGHT)
 
-            val position = game.board.positions[Position.TOP_RIGHT]
+            val position = game.board.getPlayerAt(Position.TOP_RIGHT)
 
             assertEquals(Player.X, position)
         }
@@ -68,8 +68,8 @@ class TicTactToeTest {
             game.play(Position.TOP_LEFT)
             game.play(Position.TOP_RIGHT)
 
-            assertEquals(Player.X, game.board.positions[Position.TOP_LEFT])
-            assertEquals(Player.O, game.board.positions[Position.TOP_RIGHT])
+            assertEquals(Player.X, game.board.getPlayerAt(Position.TOP_LEFT))
+            assertEquals(Player.O, game.board.getPlayerAt(Position.TOP_RIGHT))
         }
     }
 }
