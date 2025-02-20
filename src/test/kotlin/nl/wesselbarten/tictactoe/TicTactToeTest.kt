@@ -186,7 +186,7 @@ class TicTactToeTest {
             game.mark(Position.TOP_CENTER)
             game.mark(Position.MIDDLE_RIGHT)
 
-            assertEquals(null, game.getWinningPlayer())
+            assertEquals(Player.None, game.getWinningPlayer())
         }
     }
 }

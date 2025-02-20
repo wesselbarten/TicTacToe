@@ -6,7 +6,7 @@ fun main() {
 
 class Game {
 
-    val board = Board()
+    private val board = Board()
 
     var currentPlayer = Player.X
         private set
@@ -20,19 +20,22 @@ class Game {
         currentPlayer = Player.nextPlayer(currentPlayer)
     }
 
-    fun getWinningPlayer(): Player? {
+    fun getWinningPlayer(): Player {
         return board.getWinningPLayer()
     }
 }
 
 enum class Player {
-    X, O;
+    X,
+    O,
+    None;
 
     companion object {
         fun nextPlayer(currentPlayer: Player): Player {
             return when (currentPlayer) {
                 X -> O
                 O -> X
+                else -> throw IllegalStateException("Cannot get the next player when there is no player selected.")
             }
         }
     }
@@ -50,21 +53,21 @@ class Board {
         WinningPattern(Position.TOP_RIGHT, Position.MIDDLE_RIGHT, Position.BOTTOM_RIGHT),
     )
 
-    fun getPlayerAt(position: Position): Player? {
-        return positions[position]
+    fun getPlayerAt(position: Position): Player {
+        return positions[position] ?: Player.None
     }
 
     fun mark(position: Position, player: Player) {
         positions.putIfAbsent(position, player)
     }
 
-    fun getWinningPLayer(): Player? {
+    fun getWinningPLayer(): Player {
         val winningPattern = winningPatterns.find { isSamePlayer(it.firstPosition, it.secondPosition, it.thirdPosition) }
         if (winningPattern != null) {
             return getPlayerAt(winningPattern.firstPosition)
         }
 
-        return null
+        return Player.None
     }
 
     private fun isSamePlayer(firstPosition: Position, secondPosition: Position, thirdPosition: Position): Boolean {
