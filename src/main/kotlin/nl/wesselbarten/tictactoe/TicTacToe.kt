@@ -53,6 +53,7 @@ class Board {
         WinningPattern(Position.TOP_CENTER, Position.MIDDLE_CENTER, Position.BOTTOM_CENTER),
         WinningPattern(Position.TOP_RIGHT, Position.MIDDLE_RIGHT, Position.BOTTOM_RIGHT),
         WinningPattern(Position.TOP_LEFT, Position.MIDDLE_CENTER, Position.BOTTOM_RIGHT),
+        WinningPattern(Position.TOP_RIGHT, Position.MIDDLE_CENTER, Position.BOTTOM_LEFT),
     )
 
     fun getPlayerAt(position: Position): Player {
