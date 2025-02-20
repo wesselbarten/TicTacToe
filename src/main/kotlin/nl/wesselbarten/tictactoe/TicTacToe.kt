@@ -46,12 +46,15 @@ class Board {
     private val positions = mutableMapOf<Position, Player?>()
 
     private val winningPatterns = listOf(
+        // Horizontal
         WinningPattern(Position.TOP_LEFT, Position.TOP_CENTER, Position.TOP_RIGHT),
         WinningPattern(Position.MIDDLE_LEFT, Position.MIDDLE_CENTER, Position.MIDDLE_RIGHT),
         WinningPattern(Position.BOTTOM_LEFT, Position.BOTTOM_CENTER, Position.BOTTOM_RIGHT),
+        // Vertical
         WinningPattern(Position.TOP_LEFT, Position.MIDDLE_LEFT, Position.BOTTOM_LEFT),
         WinningPattern(Position.TOP_CENTER, Position.MIDDLE_CENTER, Position.BOTTOM_CENTER),
         WinningPattern(Position.TOP_RIGHT, Position.MIDDLE_RIGHT, Position.BOTTOM_RIGHT),
+        // Diagonal
         WinningPattern(Position.TOP_LEFT, Position.MIDDLE_CENTER, Position.BOTTOM_RIGHT),
         WinningPattern(Position.TOP_RIGHT, Position.MIDDLE_CENTER, Position.BOTTOM_LEFT),
     )

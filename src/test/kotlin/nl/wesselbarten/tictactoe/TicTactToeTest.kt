@@ -111,108 +111,120 @@ class TicTactToeTest {
     @Nested
     inner class WinningPlayer {
 
-        @Test
-        fun `Player X wins when has marked the top left, top center and top right positions`() {
-            val game = Game()
+        @Nested
+        inner class Horizontal {
 
-            game.mark(Position.TOP_LEFT)
-            game.mark(Position.MIDDLE_LEFT)
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.MIDDLE_CENTER)
-            game.mark(Position.TOP_RIGHT)
+            @Test
+            fun `Player X wins when has marked the top left, top center and top right positions`() {
+                val game = Game()
 
-            assertEquals(Player.X, game.getWinningPlayer())
+                game.mark(Position.TOP_LEFT)
+                game.mark(Position.MIDDLE_LEFT)
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.MIDDLE_CENTER)
+                game.mark(Position.TOP_RIGHT)
+
+                assertEquals(Player.X, game.getWinningPlayer())
+            }
+
+            @Test
+            fun `Player X wins when has marked the middle left, middle center and middle right positions`() {
+                val game = Game()
+
+                game.mark(Position.MIDDLE_LEFT)
+                game.mark(Position.TOP_LEFT)
+                game.mark(Position.MIDDLE_CENTER)
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.MIDDLE_RIGHT)
+
+                assertEquals(Player.X, game.getWinningPlayer())
+            }
+
+            @Test
+            fun `Player X wins when has marked the bottom left, bottom center and bottom right positions`() {
+                val game = Game()
+
+                game.mark(Position.BOTTOM_LEFT)
+                game.mark(Position.MIDDLE_LEFT)
+                game.mark(Position.BOTTOM_CENTER)
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.BOTTOM_RIGHT)
+
+                assertEquals(Player.X, game.getWinningPlayer())
+            }
         }
 
-        @Test
-        fun `Player X wins when has marked the middle left, middle center and middle right positions`() {
-            val game = Game()
+        @Nested
+        inner class Vertical {
 
-            game.mark(Position.MIDDLE_LEFT)
-            game.mark(Position.TOP_LEFT)
-            game.mark(Position.MIDDLE_CENTER)
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.MIDDLE_RIGHT)
+            @Test
+            fun `Player X wins when has marked the top left, middle left and bottom left positions`() {
+                val game = Game()
 
-            assertEquals(Player.X, game.getWinningPlayer())
+                game.mark(Position.TOP_LEFT)
+                game.mark(Position.MIDDLE_CENTER)
+                game.mark(Position.MIDDLE_LEFT)
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.BOTTOM_LEFT)
+
+                assertEquals(Player.X, game.getWinningPlayer())
+            }
+
+            @Test
+            fun `Player X wins when has marked the top center, middle center and bottom center positions`() {
+                val game = Game()
+
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.MIDDLE_LEFT)
+                game.mark(Position.MIDDLE_CENTER)
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.BOTTOM_CENTER)
+
+                assertEquals(Player.X, game.getWinningPlayer())
+            }
+
+            @Test
+            fun `Player X wins when has marked the top right, middle right and bottom right positions`() {
+                val game = Game()
+
+                game.mark(Position.TOP_RIGHT)
+                game.mark(Position.MIDDLE_LEFT)
+                game.mark(Position.MIDDLE_RIGHT)
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.BOTTOM_RIGHT)
+
+                assertEquals(Player.X, game.getWinningPlayer())
+            }
         }
 
-        @Test
-        fun `Player X wins when has marked the bottom left, bottom center and bottom right positions`() {
-            val game = Game()
+        @Nested
+        inner class Diagonal {
 
-            game.mark(Position.BOTTOM_LEFT)
-            game.mark(Position.MIDDLE_LEFT)
-            game.mark(Position.BOTTOM_CENTER)
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.BOTTOM_RIGHT)
+            @Test
+            fun `Player X wins when has marked the top left, middle center and bottom right positions`() {
+                val game = Game()
 
-            assertEquals(Player.X, game.getWinningPlayer())
-        }
+                game.mark(Position.TOP_LEFT)
+                game.mark(Position.MIDDLE_LEFT)
+                game.mark(Position.MIDDLE_CENTER)
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.BOTTOM_RIGHT)
 
-        @Test
-        fun `Player X wins when has marked the top left, middle center and bottom right positions`() {
-            val game = Game()
+                assertEquals(Player.X, game.getWinningPlayer())
+            }
 
-            game.mark(Position.TOP_LEFT)
-            game.mark(Position.MIDDLE_LEFT)
-            game.mark(Position.MIDDLE_CENTER)
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.BOTTOM_RIGHT)
+            @Test
+            fun `Player X wins when has marked the top right, middle center and bottom left positions`() {
+                val game = Game()
 
-            assertEquals(Player.X, game.getWinningPlayer())
-        }
+                game.mark(Position.TOP_RIGHT)
+                game.mark(Position.MIDDLE_LEFT)
+                game.mark(Position.MIDDLE_CENTER)
+                game.mark(Position.TOP_CENTER)
+                game.mark(Position.BOTTOM_LEFT)
 
-        @Test
-        fun `Player X wins when has marked the top right, middle center and bottom left positions`() {
-            val game = Game()
-
-            game.mark(Position.TOP_RIGHT)
-            game.mark(Position.MIDDLE_LEFT)
-            game.mark(Position.MIDDLE_CENTER)
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.BOTTOM_LEFT)
-
-            assertEquals(Player.X, game.getWinningPlayer())
-        }
-
-        @Test
-        fun `Player X wins when has marked the top left, middle left and bottom left positions`() {
-            val game = Game()
-
-            game.mark(Position.TOP_LEFT)
-            game.mark(Position.MIDDLE_CENTER)
-            game.mark(Position.MIDDLE_LEFT)
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.BOTTOM_LEFT)
-
-            assertEquals(Player.X, game.getWinningPlayer())
-        }
-
-        @Test
-        fun `Player X wins when has marked the top center, middle center and bottom center positions`() {
-            val game = Game()
-
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.MIDDLE_LEFT)
-            game.mark(Position.MIDDLE_CENTER)
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.BOTTOM_CENTER)
-
-            assertEquals(Player.X, game.getWinningPlayer())
-        }
-
-        @Test
-        fun `Player X wins when has marked the top right, middle right and bottom right positions`() {
-            val game = Game()
-
-            game.mark(Position.TOP_RIGHT)
-            game.mark(Position.MIDDLE_LEFT)
-            game.mark(Position.MIDDLE_RIGHT)
-            game.mark(Position.TOP_CENTER)
-            game.mark(Position.BOTTOM_RIGHT)
-
-            assertEquals(Player.X, game.getWinningPlayer())
+                assertEquals(Player.X, game.getWinningPlayer())
+            }
         }
 
         @Test
