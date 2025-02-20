@@ -11,7 +11,7 @@ class Game {
     var currentPlayer = Player.X
         private set
 
-    fun getPlayerAt(position: Position): Player? {
+    fun getPlayerAt(position: Position): Player {
         return board.getPlayerAt(position)
     }
 
