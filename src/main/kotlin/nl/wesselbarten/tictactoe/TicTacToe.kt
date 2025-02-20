@@ -88,4 +88,8 @@ enum class Position {
     BOTTOM_RIGHT;
 }
 
-class WinningPattern(val firstPosition: Position, val secondPosition: Position, val thirdPosition: Position)
+class WinningPattern(
+    val firstPosition: Position,
+    val secondPosition: Position,
+    val thirdPosition: Position
+)
