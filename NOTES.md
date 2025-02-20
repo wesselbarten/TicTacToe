@@ -15,3 +15,4 @@
 [X] Player X wins when has marked the top right, middle right and bottom right positions
 [X] Player X wins when has marked the bottom left, bottom center and bottom right positions
 [X] Player X wins when has marked the top left, middle left and bottom left positions
+[ ] Player X wins when has marked the top center, middle center and bottom center positions
