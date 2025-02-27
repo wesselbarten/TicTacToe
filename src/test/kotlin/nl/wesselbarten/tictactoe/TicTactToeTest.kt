@@ -240,4 +240,21 @@ class TicTactToeTest {
             assertEquals(Player.None, game.getWinningPlayer())
         }
     }
+
+    @Nested
+    inner class Print {
+
+        @Test
+        fun `Board can be printed`() {
+            val game = Game()
+            val expected =
+                " | | " + "\n" +
+                        "-+-+-" + "\n" +
+                        " | | " + "\n" +
+                        "-+-+-" + "\n" +
+                        " | | " + "\n"
+
+            assertEquals(expected, game.printBoard())
+        }
+    }
 }

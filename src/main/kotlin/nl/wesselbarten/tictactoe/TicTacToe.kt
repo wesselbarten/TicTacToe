@@ -23,6 +23,10 @@ class Game {
     fun getWinningPlayer(): Player {
         return board.getWinningPLayer()
     }
+
+    fun printBoard(): String {
+        return board.print()
+    }
 }
 
 enum class Player {
@@ -79,6 +83,10 @@ class Board {
     private fun isSamePlayer(firstPosition: Position, secondPosition: Position, thirdPosition: Position): Boolean {
         return getPlayerAt(firstPosition) == getPlayerAt(secondPosition) &&
             getPlayerAt(secondPosition) == getPlayerAt(thirdPosition)
+    }
+
+    fun print(): String {
+        return ""
     }
 }
 
