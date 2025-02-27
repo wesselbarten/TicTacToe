@@ -247,14 +247,36 @@ class TicTactToeTest {
         @Test
         fun `Board can be printed`() {
             val game = Game()
-            val expected =
-                " | | " + "\n" +
-                        "-+-+-" + "\n" +
-                        " | | " + "\n" +
-                        "-+-+-" + "\n" +
-                        " | | " + "\n"
+            val print = " | | " + "\n" +
+                    "-+-+-" + "\n" +
+                    " | | " + "\n" +
+                    "-+-+-" + "\n" +
+                    " | | " + "\n"
 
-            assertEquals(expected, game.printBoard())
+            assertEquals(print, game.printBoard())
+        }
+
+        @Test
+        fun `All positions on the board can be printed`() {
+            val game = Game()
+
+            game.mark(Position.TOP_LEFT)
+            game.mark(Position.TOP_CENTER)
+            game.mark(Position.TOP_RIGHT)
+            game.mark(Position.MIDDLE_LEFT)
+            game.mark(Position.MIDDLE_CENTER)
+            game.mark(Position.MIDDLE_RIGHT)
+            game.mark(Position.BOTTOM_LEFT)
+            game.mark(Position.BOTTOM_CENTER)
+            game.mark(Position.BOTTOM_RIGHT)
+
+            val print = "X|O|X" + "\n" +
+                    "-+-+-" + "\n" +
+                    "O|X|O" + "\n" +
+                    "-+-+-" + "\n" +
+                    "X|O|X" + "\n"
+
+            assertEquals(print, game.printBoard())
         }
     }
 }

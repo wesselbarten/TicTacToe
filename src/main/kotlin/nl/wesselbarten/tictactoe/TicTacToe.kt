@@ -43,6 +43,13 @@ enum class Player {
             }
         }
     }
+
+    fun printNameForBoard(): String {
+        return when (this) {
+            X, O -> name
+            None -> " "
+        }
+    }
 }
 
 class Board {
@@ -86,11 +93,19 @@ class Board {
     }
 
     fun print(): String {
-        return " | | " + "\n" +
-                "-+-+-" + "\n" +
-                " | | " + "\n" +
-                "-+-+-" + "\n" +
-                " | | " + "\n"
+        return printBoardRow(Position.TOP_LEFT, Position.TOP_CENTER, Position.TOP_RIGHT) +
+                printDividerRow() +
+                printBoardRow(Position.MIDDLE_LEFT, Position.MIDDLE_CENTER, Position.MIDDLE_RIGHT) +
+                printDividerRow() +
+                printBoardRow(Position.BOTTOM_LEFT, Position.BOTTOM_CENTER, Position.BOTTOM_RIGHT)
+    }
+
+    private fun printBoardRow(firstPosition: Position, secondPosition: Position, thirdPosition: Position): String {
+        return "${getPlayerAt(firstPosition).printNameForBoard()}|${getPlayerAt(secondPosition).printNameForBoard()}|${getPlayerAt(thirdPosition).printNameForBoard()}" + "\n"
+    }
+
+    private fun printDividerRow(): String {
+        return "-+-+-" + "\n"
     }
 }
 

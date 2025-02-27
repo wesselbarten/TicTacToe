@@ -18,3 +18,4 @@
 [X] Player X wins when has marked the top center, middle center and bottom center positions
 [X] Player X wins when has marked the top right, middle center and bottom left positions
 [X] Board can be printed
+[X] All positions on the board can be printed
