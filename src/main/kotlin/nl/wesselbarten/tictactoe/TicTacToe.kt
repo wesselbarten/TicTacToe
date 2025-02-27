@@ -86,7 +86,11 @@ class Board {
     }
 
     fun print(): String {
-        return ""
+        return " | | " + "\n" +
+                "-+-+-" + "\n" +
+                " | | " + "\n" +
+                "-+-+-" + "\n" +
+                " | | " + "\n"
     }
 }
 
