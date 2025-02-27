@@ -1,7 +1,46 @@
 package nl.wesselbarten.tictactoe
 
-fun main() {
+import java.lang.Thread.sleep
+import kotlin.random.Random
 
+fun main() {
+    val game = Game()
+
+    println("Game Board Creation...")
+    sleep(1000)
+    print(game.printBoard())
+    sleep(500)
+    println()
+    println("Board Created.")
+    sleep(500)
+    println("The game will start with player ${game.currentPlayer}")
+    println()
+    sleep(500)
+
+    val availablePositions = Position.entries.toMutableList()
+    var winningPlayer = Player.None
+    while (availablePositions.size > 0) {
+        println("Player ${game.currentPlayer}:")
+        sleep(500)
+        val index = Random.nextInt(until = availablePositions.size)
+        val position = availablePositions[index]
+        game.mark(position)
+        print(game.printBoard())
+        println()
+
+        availablePositions.remove(position)
+        winningPlayer = game.getWinningPlayer()
+        if (winningPlayer != Player.None) {
+            break
+        }
+        sleep(1000)
+    }
+
+    if (winningPlayer == Player.None) {
+        println("THE GAME ENDS WITH A DRAW!")
+        return
+    }
+    println("PLAYER ${game.getWinningPlayer()} WON!")
 }
 
 class Game {
@@ -101,7 +140,9 @@ class Board {
     }
 
     private fun printBoardRow(firstPosition: Position, secondPosition: Position, thirdPosition: Position): String {
-        return "${getPlayerAt(firstPosition).printNameForBoard()}|${getPlayerAt(secondPosition).printNameForBoard()}|${getPlayerAt(thirdPosition).printNameForBoard()}" + "\n"
+        return getPlayerAt(firstPosition).printNameForBoard() + "|" +
+                getPlayerAt(secondPosition).printNameForBoard() + "|" +
+                getPlayerAt(thirdPosition).printNameForBoard() + "\n"
     }
 
     private fun printDividerRow(): String {
